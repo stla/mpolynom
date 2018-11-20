@@ -1,12 +1,12 @@
 Package: mpolynom
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
+Title: Multivariate Polynomials
 Version: 1.0
 Date: 2018-11-20
-Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: One paragraph description of what the package does as one or more full
-          sentences.
+Author@R: c(person("Stéphane", "Laurent", role=c("aut,cre")),
+             person("John", "Burkardt", role="cph")
+Maintainer: Stéphane Laurent <laurent_step@yahoo.fr>
+Description: Differentiates and evaluates multivariate polynomials.
 License: GPL (>= 2)
 Imports: Rcpp (>= 0.12.18),
          arrangements,
@@ -16,3 +16,4 @@ Depends: R (>= 3.1.0),
          multipol
 LinkingTo: Rcpp
 RoxygenNote: 6.0.1
+Encoding: UTF-8
