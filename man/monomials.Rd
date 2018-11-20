@@ -34,7 +34,7 @@ A multipol.
 Create monomials of three variables
 }
 \examples{
-# create the monomial \\code{4*x*y^2*z^3}
+# create the monomial 4*x*y^2*z^3
 xyz(1, 2, 3, 4)
 # or
 4*x.*y.^2*z.^3

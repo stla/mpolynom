@@ -56,5 +56,6 @@ Rcpp::NumericVector rcpp_evaluate(
   for(int i=0; i<n; i++){
     out[i] = out0[i];
   }
+  delete[] out0;
   return out;
 }
