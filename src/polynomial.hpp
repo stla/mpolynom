@@ -1,3 +1,9 @@
+# include <cstdlib>
+# include <iomanip>
+# include <iostream>
+# include <cmath>
+# include <ctime>
+
 int i4_choose ( int n, int k );
 int i4_fall ( int x, int n );
 int i4_max ( int i1, int i2 );
@@ -23,7 +29,7 @@ void polynomial_dif ( int m, int o1, double c1[], int e1[], int dif[],
   int &o2, double c2[], int e2[] );
 void polynomial_mul ( int m, int o1, double c1[], int e1[], int o2, double c2[],
   int e2[], int &o, double c[], int e[] );
-void polynomial_print ( int m, int o, double c[], int e[], string title );
+void polynomial_print ( int m, int o, double c[], int e[], std::string title );
 void polynomial_scale ( double s, int m, int o1, double c1[], int e1[] );
 void polynomial_sort ( int o, double c[], int e[] );
 double *polynomial_value ( int m, int o, double c[], int e[], int nx, 
