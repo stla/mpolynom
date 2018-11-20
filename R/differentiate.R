@@ -5,7 +5,7 @@
 #' @param differentation integer vector, indicates the number of 
 #' differentiations in each variable
 #'
-#' @return a multipol
+#' @return A multipol.
 #' @export
 #' @importFrom prodlim row.match
 #' @examples
