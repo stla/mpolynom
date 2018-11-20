@@ -9,10 +9,10 @@
 #' @export
 #' @importFrom prodlim row.match
 #' @examples
-#' # define the polynomial \code{10*x^2*y*z^2}
+#' # define the polynomial 10*x^2*y*z^2
 #' P <- as.multipol(array(0, dim=1+c(2,1,2)))
 #' P[2,1,2] <- 10
-#' # differentiate two times in \code{x}
+#' # differentiate two times with respect to x
 #' differentiate(P, c(2,0,0))
 differentiate <- function(P, differentation){
   monomials <- which(P!=0, arr.ind = TRUE) - 1L

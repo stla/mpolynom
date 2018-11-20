@@ -34,3 +34,27 @@ Rcpp::List rcpp_differentiate(
   return out;
 }
 
+// [[Rcpp::export]]
+Rcpp::NumericVector rcpp_evaluate(
+    Rcpp::NumericVector Coeffs, Rcpp::IntegerVector Degrees, Rcpp::NumericMatrix Values
+){
+  int o = Coeffs.size(); 
+  double c[o]; int e[o];
+  for(int i=0; i<o; i++){
+    c[i] = Coeffs(i);
+    e[i] = Degrees(i);
+  }
+  int m = Values.ncol();
+  int n = Values.nrow();
+  double x[n*m];
+  Rcpp::NumericMatrix tValues = Rcpp::transpose(Values);
+  for(int i=0; i<n*m; i++){
+    x[i] = tValues[i];
+  }
+  double* out0 = polynomial_value(m, o, c, e, n, x);
+  Rcpp::NumericVector out(n);
+  for(int i=0; i<n; i++){
+    out[i] = out0[i];
+  }
+  return out;
+}
