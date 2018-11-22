@@ -46,7 +46,9 @@ Rcpp::NumericVector rcpp_evaluate(
   }
   int m = Values.ncol();
   int n = Values.nrow();
-  double x[n*m];
+  //double x[n*m];
+  double* x;
+  x = new double[n*m];
   Rcpp::NumericMatrix tValues = Rcpp::transpose(Values);
   for(int i=0; i<n*m; i++){
     x[i] = tValues[i];
@@ -56,6 +58,7 @@ Rcpp::NumericVector rcpp_evaluate(
   for(int i=0; i<n; i++){
     out[i] = out0[i];
   }
+  delete[] x;
   delete[] out0;
   return out;
 }
