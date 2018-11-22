@@ -4,12 +4,20 @@
 \alias{representation}
 \alias{representation}
 \alias{representation}
+\alias{representation2}
+\alias{representation}
 \alias{backrepresentation}
+\alias{representation}
+\alias{backrepresentation2}
 \title{Representation of a polynomial}
 \usage{
 representation(P, degrees = NULL)
 
+representation2(P)
+
 backrepresentation(repr, monomials)
+
+backrepresentation2(repr)
 }
 \arguments{
 \item{P}{a multipol}

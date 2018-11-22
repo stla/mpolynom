@@ -31,10 +31,35 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rcpp_rank_grlex
+int rcpp_rank_grlex(Rcpp::NumericVector Powers);
+RcppExport SEXP _mpolynom_rcpp_rank_grlex(SEXP PowersSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type Powers(PowersSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_rank_grlex(Powers));
+    return rcpp_result_gen;
+END_RCPP
+}
+// rcpp_unrank_grlex
+Rcpp::IntegerVector rcpp_unrank_grlex(int m, int rank);
+RcppExport SEXP _mpolynom_rcpp_unrank_grlex(SEXP mSEXP, SEXP rankSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type m(mSEXP);
+    Rcpp::traits::input_parameter< int >::type rank(rankSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_unrank_grlex(m, rank));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_mpolynom_rcpp_differentiate", (DL_FUNC) &_mpolynom_rcpp_differentiate, 3},
     {"_mpolynom_rcpp_evaluate", (DL_FUNC) &_mpolynom_rcpp_evaluate, 3},
+    {"_mpolynom_rcpp_rank_grlex", (DL_FUNC) &_mpolynom_rcpp_rank_grlex, 1},
+    {"_mpolynom_rcpp_unrank_grlex", (DL_FUNC) &_mpolynom_rcpp_unrank_grlex, 2},
     {NULL, NULL, 0}
 };
 

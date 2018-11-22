@@ -68,10 +68,32 @@ representation <- function(P, degrees=NULL){
 #' @name representation
 #' @rdname representation
 #' @export
+representation2 <- function(P){
+  monomials <- which(P!=0, arr.ind = TRUE) - 1L
+  degrees <- apply(monomials, 1, rcpp_rank_grlex)
+  list(
+    degrees = apply(monomials, 1, rcpp_rank_grlex), 
+    coefficients = c(P[monomials]))
+}
+
+#' @name representation
+#' @rdname representation
+#' @export
 backrepresentation <- function(repr, monomials){
   degmax <- apply(monomials, 2, max)
-  degrees <- repr$degrees
+  degrees <- repr$degrees # ???
   P <- as.multipol(array(0, dim=1+degmax))
   P[monomials] <- repr$coefficients
+  P
+}
+
+#' @name representation
+#' @rdname representation
+#' @export
+backrepresentation2 <- function(m,repr){
+  powers <- t(sapply(repr$degrees, function(rank) rcpp_unrank_grlex(m,rank)))
+  degmax <- apply(powers, 2, max)
+  P <- as.multipol(array(0, dim=1+degmax))
+  P[powers] <- repr$coefficients
   P
 }

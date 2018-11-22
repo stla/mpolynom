@@ -9,3 +9,11 @@ rcpp_evaluate <- function(Coeffs, Degrees, Values) {
     .Call(`_mpolynom_rcpp_evaluate`, Coeffs, Degrees, Values)
 }
 
+rcpp_rank_grlex <- function(Powers) {
+    .Call(`_mpolynom_rcpp_rank_grlex`, Powers)
+}
+
+rcpp_unrank_grlex <- function(m, rank) {
+    .Call(`_mpolynom_rcpp_unrank_grlex`, m, rank)
+}
+

@@ -46,7 +46,6 @@ Rcpp::NumericVector rcpp_evaluate(
   }
   int m = Values.ncol();
   int n = Values.nrow();
-  //double x[n*m];
   double* x;
   x = new double[n*m];
   Rcpp::NumericMatrix tValues = Rcpp::transpose(Values);
@@ -60,5 +59,30 @@ Rcpp::NumericVector rcpp_evaluate(
   }
   delete[] x;
   delete[] out0;
+  return out;
+}
+
+// [[Rcpp::export]]
+int rcpp_rank_grlex(
+    Rcpp::NumericVector Powers
+){
+  int m = Powers.size();
+  int x[m];
+  for(int i = 0; i<m; i++){
+    x[i] = Powers[i];
+  }
+  int rank = mono_rank_grlex(m, x);
+  return rank;
+}
+
+// [[Rcpp::export]]
+Rcpp::IntegerVector rcpp_unrank_grlex(
+    int m, int rank
+){
+  int* powers = mono_unrank_grlex(m, rank);
+  Rcpp::IntegerVector out(m);
+  for(int i=0; i<m; i++){
+    out[i] = powers[i];
+  }
   return out;
 }
