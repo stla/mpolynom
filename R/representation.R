@@ -2,7 +2,7 @@ revM <- function(M) M[nrow(M):1,]
 
 #' Degrees table
 #' @description  Gives the correspondence between a triplet of degrees and an integer.
-#' @importFrom plyr rbind.fill
+#' @importFrom plyr rbind.fill.matrix
 #' @importFrom arrangements combinations
 #' @export
 degreesTable <- function(kmax){
